@@ -66,6 +66,43 @@ plt.show()
 
 This creates a 3D scatter plot where the data points are randomly distributed along the X, Y, and Z axes.
 
+#### Example: Plotting a 3D Scatter Plot on Google.Colab
+
+```python
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+import numpy as np
+import plotly.graph_objects as go
+
+# Data points
+x = np.random.rand(100)
+y = np.random.rand(100)
+z = np.random.rand(100)
+
+# Create a figure
+fig = go.Figure(data=[go.Scatter3d(
+    x=x, y=y, z=z,
+    mode="markers",
+    marker=dict(
+        size=5,
+        color=z,
+        colorscale="Viridis",
+        opacity=0.8
+    )
+)])
+
+fig.update_layout(
+    scene=dict(
+        xaxis_title="X Axis",
+        yaxis_title="Y Axis",
+        zaxis_title="Z Axis",
+    ),
+    margin=dict(l=0, r=0, b=0, t=0)
+)
+
+fig.show()
+```
+
 #### 3D Line Plot:
 You can also plot 3D lines using the `plot()` function in 3D space.
 
